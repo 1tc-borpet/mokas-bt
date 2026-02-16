@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 255);
+            $table->text('description')->nullable();
+            $table->enum('status', ['fuggoben', 'folyamatban', 'kesz'])->default('fuggoben');
             $table->timestamps();
         });
     }
